@@ -8,15 +8,15 @@ const visuals = {
   experience: () => `<div class="tl"><i></i><i></i><i></i></div><strong>STT NF</strong>`
 };
 const pages = {
-  about: () => `<div class="two"><img class="pic" src="${P.profile.photo}" alt="Portrait of ${P.profile.name}"><div>
-    ${P.profile.bio.map(t => `<p class="lead">${t}</p>`).join("")}
-    <h2>Interests</h2><ul class="chips">${li(P.profile.interests)}</ul>
-    <h2>Career goal</h2><p>${P.profile.goal}</p></div></div>`,
+  social: () => P.social.map(s => `<a class="row link" href="${s.url}" target="_blank" rel="noopener noreferrer"><span class="mk">${s.mark}</span><h2>${s.name}</h2><small>${s.handle}</small></a>`).join(""),
   projects: () => P.projects.map(p => `<article class="row"><h2>${p.title}</h2><div><small>${p.type}</small><p class="lead">${p.desc}</p>
     <ul class="chips">${li(p.stack)}</ul><ul class="plain">${li(p.features)}</ul>
     <p>${p.github ? `<a class="btn" href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub</a>` : ""}
     ${p.demo ? `<a class="btn red" href="${p.demo}" target="_blank" rel="noopener noreferrer">Live demo</a>` : ""}</p></div></article>`).join(""),
-  social: () => P.social.map(s => `<a class="row link" href="${s.url}" target="_blank" rel="noopener noreferrer"><span class="mk">${s.mark}</span><h2>${s.name}</h2><small>${s.handle}</small></a>`).join(""),
+  about: () => `<div class="two"><img class="pic" src="${P.profile.photo}" alt="Portrait of ${P.profile.name}"><div>
+    ${P.profile.bio.map(t => `<p class="lead">${t}</p>`).join("")}
+    <h2>Interests</h2><ul class="chips">${li(P.profile.interests)}</ul>
+    <h2>Career goal</h2><p>${P.profile.goal}</p></div></div>`,
   skills: () => P.skills.map(g => `<section class="row"><small>${g.group}</small><div class="big">${g.items.map(i => `<span>${i}</span>`).join("")}</div></section>`).join(""),
   experience: () => `<ol class="time">${P.timeline.map(t => `<li class="${t.placeholder ? "ph" : ""}"><small>${t.period}</small><h2>${t.title}</h2><p>${t.place}</p>${t.note ? `<p>${t.note}</p>` : ""}</li>`).join("")}</ol>`
 };
